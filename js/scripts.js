@@ -16,13 +16,13 @@ btnNavEl.addEventListener('click', function () {
 
 ///////////////////////////////////////////////////////////
 // Smooth scrolling animation
+document.querySelector('.header').addEventListener('click', e => {
+  if (e.target.classList.contains('nav-cta')) return;
 
-const allLinks = document.querySelectorAll('a:link');
+  e.preventDefault();
 
-allLinks.forEach(function (link) {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-    const href = link.getAttribute('href');
+  if (e.target.closest('.logo-img')) {
+    const href = e.target.closest('.logo-img').getAttribute('href');
 
     // Scroll back to top
     if (href === '#')
@@ -30,17 +30,21 @@ allLinks.forEach(function (link) {
         top: 0,
         behavior: 'smooth',
       });
+  }
 
-    // Scroll to other links
-    if (href !== '#' && href.startsWith('#')) {
-      const sectionEl = document.querySelector(href);
-      sectionEl.scrollIntoView({ behavior: 'smooth' });
-    }
+  if (e.target.classList.contains('main-nav-link')) {
+    const href = e.target.getAttribute('href');
 
-    // Close mobile naviagtion
-    if (link.classList.contains('main-nav-link'))
-      headerEl.classList.toggle('nav-open');
-  });
+    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('.header').classList.toggle('nav-open');
+  }
+});
+
+document.querySelector('.btn--text').addEventListener('click', e => {
+  e.preventDefault();
+
+  const href = e.target.getAttribute('href');
+  document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
 });
 
 ///////////////////////////////////////////////////////////
