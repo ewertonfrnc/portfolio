@@ -42,7 +42,7 @@
           <li><a class="main-nav-link" href="#hab">Habilidades</a></li>
           <li><a class="main-nav-link" href="#pro">Projetos</a></li>
           
-          <li><a class="nav-cta" href="mailto:ewefsilva@gmail.com">Falar comigo</a></li>
+          <li><a class="nav-cta btn--show-modal" href="mailto:ewefsilva@gmail.com">Falar comigo</a></li>
         </ul>
       </nav>
 
@@ -65,7 +65,7 @@
               excelente que seus clientes irão adorar.
             </p>
 
-            <a href="mailto:ewefsilva@gmail.com"  class="btn btn--full">Vamos conversar</a>
+            <a href="mailto:ewefsilva@gmail.com"  class="btn btn--full btn--show-modal">Vamos conversar</a>
             <a href="#pro" class="btn btn--text">Saiba mais &darr;</a>
           </div>
           <div class="hero__img-box">
@@ -117,21 +117,22 @@
                 <a
                   href="https://omnifood-br.netlify.app/"
                   class="link-to"
-                  target="_blank"
+                  rel="noreferrer"
+                  
                   ><ion-icon class="work-icon" name="open-outline"></ion-icon
                   ><span>Ver site</span></a
                 >
               </div>
   
               <div class="work__img">
-                <img src="./img/omnifood1.png" alt="" />
+                <img src="./img/omnifood1.png" alt="Foto do website" />
               </div>
             </div>
           
 
           <div class="work">
             <div class="work__img">
-                <img src="img/bankist1.png" alt="" />
+                <img src="img/bankist1.png" alt="Foto do website" />
             </div>
             <div class="work__info-text">
               <p class="work-title">Bankist</p>
@@ -143,7 +144,7 @@
               <a
                 href="https://bankist-br.netlify.app/"
                 class="link-to"
-                target="_blank"
+                
                 ><ion-icon class="work-icon" name="open-outline"></ion-icon
                 ><span>Ver site</span></a
               >
@@ -161,13 +162,22 @@
             <a
               href="https://nexter-br.netlify.app/"
               class="link-to"
-              target="_blank"
+              
               ><ion-icon class="work-icon" name="open-outline"></ion-icon
               ><span>Ver site</span></a
             >
           </div>
           <div class="work__img">
-            <img src="./img/nexter1.png" class="front" alt="" />
+            <picture>
+              <source srcset="img/nexter1.webp" type="image/webp">
+
+              <img
+              src="img/nexter1.png"
+              class="hero-img"
+              alt="Foto do website"
+            />
+            </picture>
+            <!-- <img src="./img/nexter1.png" class="front" alt="" /> -->
           </div>
         </div>
          </div>
@@ -181,5 +191,25 @@
         </p>
       </div>
     </footer>
+
+    <div class="modal hidden">
+      <button class="btn--close-modal">×</button>
+      <h2 class="modal__header">
+        Vamos começar a criar seu site perfeito? 😀
+      </h2>
+      <form class="modal__form" netlify>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome">
+
+        <label for="email">Email</label>
+        <input type="email" id="email">
+
+        <label for="mensagem">Mensagem</label>
+        <textarea name="mensagem" id="mensagem" cols="30" rows="3"></textarea>
+        
+        <button class="btn btn--modal">Continuar →</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
   </body>
 </html>
